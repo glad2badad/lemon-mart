@@ -8,7 +8,9 @@ import { StockEntryComponent } from './stock-entry/stock-entry.component'
 
 const routes: Routes = [
   {
-    path: '', component: InventoryComponent, children: [
+    path: '',
+    component: InventoryComponent,
+    children: [
       { path: '', redirectTo: '/inventory/home', pathMatch: 'full' },
       { path: 'home', component: InventoryHomeComponent },
       { path: 'categories', component: CategoriesComponent },

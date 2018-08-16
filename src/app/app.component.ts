@@ -26,5 +26,5 @@ export class AppComponent {
       sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/lemon.svg')
     )
   }
-  title = 'lemon-mart'
+  title = 'LemonMart123'
 }
