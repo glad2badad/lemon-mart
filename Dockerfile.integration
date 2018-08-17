@@ -1,4 +1,7 @@
-FROM glad2badad/angular6-tutorial-project-2
+FROM glad2badad/lemonmart1
+# ARG duluca/minimal-node-build-env:8.9.4
+# FROM ${duluca/minimal-node-build-env:8.9.4} as builder
+# FROM duluca/minimal-node-build-env:8.9.4 as builder
 
 ENV SRC_DIR /usr/src
 ENV GIT_REPO https://github.com/glad2badad/lemon-mart.git
@@ -7,18 +10,20 @@ ENV BUILD_SCRIPT build:prod
 
 RUN mkdir -p $SRC_DIR
 WORKDIR $SRC_DIR
-RUN git clone $GIT_REPO .
+# RUN git clone $GIT_REPO .
+COPY $SRC_CODE_LOCATION .
 RUN npm install
 Run npm run $BUILD_SCRIPT
 
-FROM slapers/alpine-node-chromium as tester
-ENV BUILDER_SRC_DIR /usr/src
-ENV SRC_DIR /usr/src
-ENV TEST_SCRIPT test:prod
+# FROM slapers/alpine-node-chromium as tester
+# FROM rastasheep/alpine-node-chromium:8-alpine
+# ENV BUILDER_SRC_DIR /usr/src
+# ENV SRC_DIR /usr/src
+# ENV TEST_SCRIPT test:prod
 
-RUN mkdir -p $SRC_DIR
-WORKDIR $SRC_DIR
+# RUN mkdir -p $SRC_DIR
+# WORKDIR $SRC_DIR
 
-COPY --from=builder $BUILDER_SRC_DIR $SRC_DIR
+# COPY --from=builder $BUILDER_SRC_DIR $SRC_DIR
 
-CMD 'npm run $TEST_SCRIPT'
+# CMD 'npm run $TEST_SCRIPT'
