@@ -1,0 +1,24 @@
+FROM glad2badad/angular6-tutorial-project-2
+
+ENV SRC_DIR /usr/src
+ENV GIT_REPO https://github.com/glad2badad/lemon-mart.git
+ENV SRC_CODE_LOCATION .
+ENV BUILD_SCRIPT build:prod
+
+RUN mkdir -p $SRC_DIR
+WORKDIR $SRC_DIR
+RUN git clone $GIT_REPO .
+RUN npm install
+Run npm run $BUILD_SCRIPT
+
+FROM slapers/alpine-node-chromium as tester
+ENV BUILDER_SRC_DIR /usr/src
+ENV SRC_DIR /usr/src
+ENV TEST_SCRIPT test:prod
+
+RUN mkdir -p $SRC_DIR
+WORKDIR $SRC_DIR
+
+COPY --from=builder $BUILDER_SRC_DIR $SRC_DIR
+
+CMD 'npm run $TEST_SCRIPT'
