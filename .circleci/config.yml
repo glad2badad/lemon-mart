@@ -1,6 +1,9 @@
 version: 2
 jobs:
   build:
+    machine:
+      node:
+        version: 9.3.0
     docker:
       - image: docker:17.12.0-ce-git
     working_directory: /usr/src
