@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { InventoryComponent } from './inventory.component'
-import { InventoryHomeComponent } from './inventory-home/inventory-home.component'
-import { CategoriesComponent } from './categories/categories.component'
-import { ProductsComponent } from './products/products.component'
 import { StockEntryComponent } from './stock-entry/stock-entry.component'
+import { ProductsComponent } from './products/products.component'
+import { CategoriesComponent } from './categories/categories.component'
+import { InventoryHomeComponent } from './inventory-home/inventory-home.component'
 
 const routes: Routes = [
   {
@@ -13,9 +13,9 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/inventory/home', pathMatch: 'full' },
       { path: 'home', component: InventoryHomeComponent },
-      { path: 'categories', component: CategoriesComponent },
+      { path: 'stockEntry', component: StockEntryComponent },
       { path: 'products', component: ProductsComponent },
-      { path: 'stock', component: StockEntryComponent },
+      { path: 'categories', component: CategoriesComponent },
     ],
   },
 ]

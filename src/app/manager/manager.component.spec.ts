@@ -9,7 +9,7 @@ describe('ManagerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [commonTestingModules],
+      imports: commonTestingModules,
       declarations: [ManagerComponent],
     }).compileComponents()
   }))

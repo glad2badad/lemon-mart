@@ -9,7 +9,7 @@ describe('InventoryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [commonTestingModules],
+      imports: commonTestingModules,
       declarations: [InventoryComponent],
     }).compileComponents()
   }))
